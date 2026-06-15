@@ -119,23 +119,6 @@ body {
     transform: scale(1.2);
 }
 
-.intern-info {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.intern-info span {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-}
-
-.intern-info i {
-    margin-right: 8px;
-}
-
 .home-image img {
     width: 250px;
     height: 250px;
@@ -309,20 +292,47 @@ body {
     margin-bottom: 40px;
 }
 
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    max-width: 1000px;
-    margin: 0 auto;
+.projects-scroll {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 10px 0;
+    scrollbar-width: thin;
+    scrollbar-color: #3498db #e8e8e8;
+}
+
+.projects-scroll::-webkit-scrollbar {
+    height: 8px;
+}
+
+.projects-scroll::-webkit-scrollbar-track {
+    background: #e8e8e8;
+    border-radius: 4px;
+}
+
+.projects-scroll::-webkit-scrollbar-thumb {
+    background: #3498db;
+    border-radius: 4px;
+}
+
+.projects-scroll::-webkit-scrollbar-thumb:hover {
+    background: #2980b9;
+}
+
+.projects-container {
+    display: flex;
+    gap: 25px;
+    padding: 0 20px;
+    min-width: max-content;
 }
 
 .project-card {
     background: #fff;
-    padding: 30px;
+    padding: 25px;
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease;
+    flex-shrink: 0;
+    width: 320px;
 }
 
 .project-card:hover {
@@ -489,12 +499,11 @@ body {
         display: none;
     }
     
-    .skills-container,
-    .projects-grid {
+    .skills-container {
         grid-template-columns: 1fr;
     }
     
-    .intern-info {
-        justify-content: center;
+    .project-card {
+        width: 280px;
     }
 }
